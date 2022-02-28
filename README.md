@@ -1,5 +1,5 @@
 ### Hi there 👋
-My name is Ike Oche Emmanuel, I am a Computer engineer, with a massive interest in building scalable web applications with golang and nodeJS and mobile applications with react native.
+My name is Ike Oche Emmanuel, I am a Computer engineer, with a massive interest in building scalable web applications and tools spanning Fullstack Web Development, Devops,  Blockchain and CrossPlatform mobile applications .
 
 I am also an embedded systems enthusiast. In my free time I love playing the piano, making illustrations and watching Anime
 
