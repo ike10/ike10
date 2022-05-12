@@ -1,7 +1,9 @@
 ### Hi there 👋
-My name is Ike Oche Emmanuel, I am a Computer engineer, with a massive interest in building scalable web applications and tools spanning Fullstack Web Development, Devops,  Blockchain and CrossPlatform mobile applications .
+My name is Oche Emmanuel Ike, I am a Computer engineer, with a massive interest in building scalable web tools and applications and my experiences spans Fullstack Web Development, Devops,  Blockchain and CrossPlatform mobile applications development .
 
-I am also an embedded systems enthusiast. In my free time I love playing the piano, making illustrations and watching Anime (heavy attack on titan fan here )
+I am passionate about diving deep into people's painpoints and converting everyday challenges in functional and interactive products that help make people (and businesses) live better and more prosperous lives.
+
+I am also an embedded systems enthusiast. In my free time I love diving deep into low level systems, playing the piano, making illustrations and watching Anime (heavy attack on titan fan here ;-)
 
 
 - 🔭 I’m currently working on sonic.. an online invoicing and book keeping service for small businesses and freelancers ...
