@@ -1,5 +1,5 @@
 ### Hi there 👋
-My name is Oche Emmanuel Ike, I am a Computer engineer, with a massive interest in building scalable web tools and applications and my experiences spans Fullstack Web Development, Devops,  Blockchain and CrossPlatform mobile applications development .
+My name is Oche Emmanuel Ike, I am a Computer engineer, with a massive interest in building scalable web tools and applications and my experiences spans Fullstack Web Development, Devops,  Cybersecurity and CrossPlatform mobile applications development .
 
 I am passionate about diving deep into people's painpoints and converting everyday challenges in functional and interactive products that help make people (and businesses) live better and more prosperous lives.
 
