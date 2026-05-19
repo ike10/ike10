@@ -1,10 +1,14 @@
 # Oche Ike
 
-**Computer Engineer · Data & Growth Analyst · Quantitative Researcher**
+**Computer Engineer · Quantitative Researcher · Analyst**
 
-I build systems that extract signal from noise — whether that's forecasting exchange rates from 30 years of macroeconomic data, measuring information entropy in viral content, or identifying what actually drives distribution and engagement.
+I think the most interesting problems are the ones where the data doesn't give up the answer easily.
 
-My work sits at the intersection of **applied mathematics, data engineering, and growth thinking**. I'm most interested in problems where the answer isn't obvious and where rigorous quantitative methods reveal something counterintuitive.
+Most of my work starts with a question that feels simple and turns out not to be — *what actually drives engagement in viral content? what does the exchange rate tell us that the news doesn't? where is the hidden vulnerability in this contract's logic?* — and then I go looking for a rigorous way to find out. I'm drawn to information theory and statistical methods not because they're sophisticated, but because they're honest. They force you to be precise about what you actually know and what you're just assuming.
+
+That same instinct carries into security research. Auditing a smart contract isn't fundamentally different from auditing a dataset — you're looking for assumptions that haven't been tested, edge cases the original author didn't consider, and attack surfaces hiding in plain sight. I've spent time studying economic vulnerabilities in DeFi protocols, working through smart contract audit contests, and doing OSINT research — all of which are, at their core, adversarial research problems. Someone built something they thought was airtight. Your job is to find out if it actually is.
+
+I enjoy the full arc of any research problem: forming the right question, building or cleaning the data, picking the right method, finding the result that surprises you, and then figuring out what it actually means in plain terms.
 
 ---
 
@@ -13,24 +17,43 @@ My work sits at the intersection of **applied mathematics, data engineering, and
 ### 📊 [EntropyVsEngagement](https://github.com/ike10/EntropyVsEngagement)
 **Does title complexity predict YouTube virality?**
 
-Ran a content analysis pipeline on **40,949 YouTube trending videos** to test whether Shannon entropy — a formal measure of word diversity from information theory — predicts view count. Result: titles in the high-entropy range averaged **2.77M views**, outperforming both low and maximum-complexity titles. The engagement curve peaks in the middle, consistent with the psychological principle of optimal arousal. Built in Python (pandas, scipy, matplotlib) with full documentation of four analytical blind spots a skeptical reviewer would raise.
+I wanted to know if there was a formal, measurable relationship between how a YouTube title is written and how many people watch the video. So I ran a content analysis pipeline on **40,949 trending videos**, scoring every title using Shannon entropy — a measure of word diversity borrowed from information theory.
 
-> Tools: Python · pandas · scipy · matplotlib · Shannon Entropy · Information Theory
+The result surprised me. Engagement doesn't peak at maximum complexity. It peaks in the middle — titles in the high-entropy range averaged **2.77M views**, outperforming both the simplest and the most complex titles. That maps onto a known principle from psychology called optimal arousal: people engage most with content that feels novel but is still readable. The math confirmed the intuition.
+
+I also documented four analytical objections a skeptical reviewer would raise — title length correlation, algorithmic selection bias, genre effects, repeat-trending inflation — because a finding is only interesting if it survives scrutiny.
+
+> Python · pandas · scipy · matplotlib · Shannon Entropy · Information Theory
 
 ---
 
 ### 📈 USD/NGN Exchange Rate Forecasting *(Masters Thesis)*
-**End-to-end forecasting pipeline across 30 years of daily data**
+**What can 30 years of data tell us about where the naira is going?**
 
-Built a full pipeline from scratch: generated daily data from World Bank annual averages using **cubic spline interpolation** with calibrated Gaussian noise (σ = 0.02), validated against CBN volatility benchmarks. Ranked 18 candidate features using a composite **Transfer Entropy + Mutual Information** score (weighted 0.65·TE + 0.35·MI), with significance assessed via 1,000-sample permutation tests.
+This project started with a data problem: clean daily exchange rate data for USD/NGN over a 30-year window doesn't exist. So I built it — generating a daily series from World Bank annual averages using **cubic spline interpolation** with calibrated Gaussian noise (σ = 0.02), then validating the synthetic series against actual CBN volatility benchmarks.
 
-Implemented and evaluated 8 forecasting models including ARIMA, ARIMAX, Mean Reversion, and a two-layer **PyTorch LSTM** (96→48 hidden units). Headline result: **77.9% directional accuracy** on a confidence-filtered ensemble vs. a 45.6% random walk baseline (p < 0.0001). Model decisions explained using **SHAP permutation importance**.
+The feature selection phase is what I found most intellectually interesting. I ranked 18 candidate predictors using a composite **Transfer Entropy + Mutual Information** score — information-theoretic measures that capture directional and nonlinear relationships that correlation misses. Two features that are commonly assumed to matter (oil return, MPR change) turned out to carry no statistically significant directional information. That kind of result — where the conventional wisdom doesn't hold up — is what research is for.
 
-> Tools: Python · PyTorch · ARIMA · LSTM · SHAP · Diebold-Mariano Test · Transfer Entropy · Mutual Information
+I built and evaluated 8 models including ARIMA, ARIMAX, Mean Reversion, and a two-layer **PyTorch LSTM**. The headline result: **77.9% directional accuracy** on a confidence-filtered ensemble vs. a 45.6% random walk baseline (p < 0.0001, Diebold-Mariano test). Model decisions unpacked using **SHAP permutation importance**.
+
+> Python · PyTorch · ARIMA · LSTM · SHAP · Diebold-Mariano Test · Transfer Entropy · Mutual Information
 
 ---
 
-## What I Work With
+### 🦟 [Malaria_Visualization](https://github.com/ike10/Malaria_Visualization)
+**What does 118 years of mosquito data tell us about where malaria strikes next?**
+
+Africa's malaria problem has more than a century of data behind it — but most of it sits unexamined. I wanted to see what patterns emerge when you actually look. Working with the Africa Vector Database (1898–2016), I analyzed the geographic and temporal distribution of *Anopheles* mosquito species across the continent, then built predictive models to identify where intervention matters most.
+
+The most interesting part wasn't the visualization — it was using a **Random Forest classifier** to predict *An. gambiae* presence from latitude, longitude, and year of sampling, then applying **permutation importance** to understand what the model was actually relying on. A second model went further: predicting WHO malaria control intervention priorities by country, producing a heat map of urgency scores. Countries like Guinea Bissau and Equatorial Guinea came out as high-priority targets that don't always make the headline conversations.
+
+The broader point the project made: geospatial and temporal features carry more predictive signal than most health analyses give them credit for. Where something happens, and when, often tells you more than what was directly measured.
+
+> Python · pandas · numpy · scikit-learn · folium · matplotlib · seaborn · Random Forest · Geospatial Mapping
+
+---
+
+## Tools I Work With
 
 ```
 Languages     Python · Go · TypeScript · Solidity · SQL
@@ -44,14 +67,12 @@ Security      Smart Contract Auditing · OSINT · Fuzzing · Formal Verification
 
 ## Background
 
-- 🎓 MEng Computer Engineering — with thesis focus on quantitative forecasting and information-theoretic feature selection
+- 🎓 MEng Computer Engineering — thesis focused on quantitative forecasting and information-theoretic feature selection
 - 🔍 Research interests: growth analytics, content distribution, market signals, applied information theory
-- 📍  Nigeria
+- 📍 Abuja, Nigeria
 
 ---
 
 ## Get In Touch
 
 - 📧 [ocheike10@gmail.com](mailto:ocheike10@gmail.com)
-- 🌐 [ikeoche.vercel.app](https://ikeoche.vercel.app)
-- 🐦 [@oche_ike](https://twitter.com/oche_ike)
